@@ -1,0 +1,13 @@
+import requests,bs4
+
+def myfunction(path,folder_path):
+	r=requests.get(url)
+	soup=BeautifulSoup(r.text)
+	img_list=soup.find_all('img')
+	for img in img_list:
+		src=img['src']
+		file_name=src.split('/')[-1]
+		img_response=requests.get(src)
+		f=open(folder_path+'/'+file_name,w+b)
+		f.write(img_response,content)
+		f.close()																				
